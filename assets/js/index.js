@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //instance d'authentification 
     const backendApiNoAuth = axios.create({
-        baseURL: "http://localhost:8888/auth",
+        baseURL: "http://app-rs-backend.herokuapp.com/auth",
         timeout: 80000,
         headers: { "Content-Type": "application/json" },
     });
@@ -14,7 +14,7 @@ $(document).ready(function () {
 
             //instance de l'api apres l'authentification
             const backendApi = axios.create({
-                baseURL: "http://localhost:8888/api",
+                baseURL: "http://app-rs-backend.herokuapp.com/api",
                 timeout: 80000,
                 headers: {
                     "Content-Type": "application/json",
@@ -31,7 +31,7 @@ $(document).ready(function () {
                         
                         //s'il possede une image de profile
                         if(user.profilePicture!=null || user.profilePicture!=undefined){
-                            op+= `<img src="http://localhost:8888/pictures/${user.profilePicture}" style="height:64px;width:64px"/>`
+                            op+= `<img src="http://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}" style="height:64px;width:64px"/>`
                         }else{
                             op+= `<img src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px"/>`
                         }
