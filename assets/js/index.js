@@ -25,48 +25,18 @@ $(document).ready(function () {
             //recuperation des utilisateurs du laboratoire
             backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`)
                 .then(function (response) {
-                    var chercheurs = $('#chercheursInfo');
+                    var images = $('#images');
                     var op = "";
                     response.data.forEach((user)=>{
                         
                         //s'il possede une image de profile
                         if(user.profilePicture!=null || user.profilePicture!=undefined){
-                            op+='<div class="col-lg-6">'+
-                            '<div class="member d-flex align-items-start">'+
-                                `<div><img class="sp_img" src="http://localhost:8888/pictures/${user.profilePicture}" alt=""></div>`+
-                                '<div class="member-info">'+
-                                    `<h4>Prof. ${user.firstName} ${user.lastName}</h4>`+
-                                    `<span></span>`+
-                                    '<p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>'+
-                                    '<div class="social">'+
-                                        '<a href=""><i class="ri-twitter-fill"></i></a>'+
-                                        '<a href=""><i class="ri-facebook-fill"></i></a>'+
-                                        '<a href=""><i class="ri-instagram-fill"></i></a>'+
-                                       '<a href=""> <i class="ri-linkedin-box-fill"></i></a>'+
-                                    '</div>'+
-                                '</div>'+
-                            '</div>'+
-                            '</div>'
+                            op+= `<img src="http://localhost:8888/pictures/${user.profilePicture}" style="height:64px;width:64px"/>`
                         }else{
-                            op+='<div class="col-lg-6">'+
-                            '<div class="member d-flex align-items-start">'+
-                                `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" alt=""></div>`+
-                                '<div class="member-info">'+
-                                    `<h4>Prof. ${user.firstName} ${user.lastName}</h4>`+
-                                    `<span></span>`+
-                                    '<p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>'+
-                                    '<div class="social">'+
-                                        '<a href=""><i class="ri-twitter-fill"></i></a>'+
-                                        '<a href=""><i class="ri-facebook-fill"></i></a>'+
-                                        '<a href=""><i class="ri-instagram-fill"></i></a>'+
-                                       '<a href=""> <i class="ri-linkedin-box-fill"></i></a>'+
-                                    '</div>'+
-                                '</div>'+
-                            '</div>'+
-                            '</div>'
+                            op+= `<img src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px"/>`
                         }
                     })
-                    chercheurs.html(op)
+                    images.html(op)
                     
                 }).catch(function (error) {
                     console.log(error)
@@ -77,7 +47,4 @@ $(document).ready(function () {
         .catch(function (error) {
             console.log(error)
         })
-
-
-        
 })
