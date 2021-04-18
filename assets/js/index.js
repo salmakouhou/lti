@@ -36,9 +36,8 @@ $(document).ready(function () {
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
                                     '<div class="member-info">' +
-                                    `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
+                                    `<h6>${user.roles}</h6>` +
                                     `<span></span>` +
-                                    '<p>${user.roles}</p>' +
                                     '<div class="social">' +
                                     '<a href=""><i class="ri-twitter-fill"></i></a>' +
                                     '<a href=""><i class="ri-facebook-fill"></i></a>' +
@@ -55,8 +54,8 @@ $(document).ready(function () {
                                     `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px" alt=""></div>`+
                                     '<div class="member-info">'+
                                         `<h4>Prof. ${user.firstName} ${user.lastName}</h4>`+
+                                        `<h6>${user.roles}</h6>` +
                                         `<span></span>`+
-                                        '<p>${user.roles}</p>'+
                                         '<div class="social">'+
                                             '<a href=""><i class="ri-twitter-fill"></i></a>'+
                                             '<a href=""><i class="ri-facebook-fill"></i></a>'+
@@ -75,8 +74,8 @@ $(document).ready(function () {
                                 `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" alt=""></div>` +
                                 '<div class="member-info">' +
                                 `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
+                                `<h6>${user.roles}</h6>` +
                                 `<span></span>` +
-                                '<p>${user.roles}</p>' +
                                 '<div class="social">' +
                                 '<a href=""><i class="ri-twitter-fill"></i></a>' +
                                 '<a href=""><i class="ri-facebook-fill"></i></a>' +
