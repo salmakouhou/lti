@@ -38,7 +38,7 @@ $(document).ready(function () {
                                     '<div class="member-info">' +
                                     `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
                                     `<span></span>` +
-                                    '<p>chercheur</p>' +
+                                    '<p>${user.roles}</p>' +
                                     '<div class="social">' +
                                     '<a href=""><i class="ri-twitter-fill"></i></a>' +
                                     '<a href=""><i class="ri-facebook-fill"></i></a>' +
@@ -56,7 +56,7 @@ $(document).ready(function () {
                                     '<div class="member-info">'+
                                         `<h4>Prof. ${user.firstName} ${user.lastName}</h4>`+
                                         `<span></span>`+
-                                        '<p>Chercheur</p>'+
+                                        '<p>${user.roles}</p>'+
                                         '<div class="social">'+
                                             '<a href=""><i class="ri-twitter-fill"></i></a>'+
                                             '<a href=""><i class="ri-facebook-fill"></i></a>'+
@@ -76,7 +76,7 @@ $(document).ready(function () {
                                 '<div class="member-info">' +
                                 `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
                                 `<span></span>` +
-                                '<p>chercheur</p>' +
+                                '<p>${user.roles}</p>' +
                                 '<div class="social">' +
                                 '<a href=""><i class="ri-twitter-fill"></i></a>' +
                                 '<a href=""><i class="ri-facebook-fill"></i></a>' +
