@@ -94,72 +94,7 @@ $(document).ready(function () {
                     console.log(error)
                 })
 
-             //recuperation des doctorants du laboratoire
-             backendApi.get(`/FollowedUsers/${user.phdStudents[0]._id}`)
-             .then(function (response) {
-                 var phdStudents = $('#phdStudentsInfo');
-                 var op = "";
-                 response.data.forEach((user) => {
-
-                        //s'il possede une image de profile
-                        if ((user.profilePicture != null || user.profilePicture != undefined)) {
-                            backendApi.get(`https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}`).then(function (response) {   
-                            op+= '<div class="owl-carousel testimonials-carousel"> '+  
-                            '<div class="testimonial-wrap">' +
-                            '<div class="testimonial-item">' +
-                            '<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">'+
-                            `<h3>${user.firstName} ${user.lastName}</h3>`
-                                `<h4>${user.roles}</h4>`
-                                '<p><i class="bx bxs-quote-alt-left quote-icon-left"></i> desc <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>'+
-                            '</div>'+
-                            '</div>'
-                            
-
-                        }).catch(function (error) {
-                            console.log(error)
-
-                            op+='<div class="col-lg-6">'+
-                            '<div class="member d-flex align-items-start">'+
-                            `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px" alt=""></div>`+
-                            '<div class="owl-carousel testimonials-carousel">' +  
-                            '<div class="testimonial-wrap">' +
-                            '<div class="testimonial-item">' +
-                            '<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">'+
-                             `<h3>${user.firstName} ${user.lastName}</h3>`
-                                `<h4>${user.roles}</h4>`
-                                '<p><i class="bx bxs-quote-alt-left quote-icon-left"></i> desc <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>'+
-                            '</div>'+
-                            '</div>'
-                            '</div>'+
-                            '</div>'+
-                            '</div>'
-
-
-                        })
-
-                        } else {
-                            op += '<div class="col-lg-6">' +
-                            '<div class="member d-flex align-items-start">' +
-                            `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" alt=""></div>` +
-                            '<div class="owl-carousel testimonials-carousel">' +  
-                            '<div class="testimonial-wrap">' +
-                            '<div class="testimonial-item">' +
-                            '<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">'+
-                             `<h3>${user.firstName} ${user.lastName}</h3>`
-                                `<h4>${user.roles}</h4>`
-                                '<p><i class="bx bxs-quote-alt-left quote-icon-left"></i> desc <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>'+
-                            '</div>'+
-                            '</div>'+
-                            '</div>'+
-                            '</div>'+
-                            '</div>'
-                            }
-                        })
-                        phdStudents.html(op)
-
-                    }).catch(function (error) {
-                        console.log(error)
-                    })
+             
 
 
 
