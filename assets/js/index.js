@@ -32,8 +32,7 @@ $(document).ready(function () {
                         //s'il possede une image de profile
                         if ((user.profilePicture != null || user.profilePicture != undefined)) {
                             backendApi.get(`https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}`).then(function (response) {
-                                op +='<div class="row">' +
-                                    '<div class="col-lg-6">' +
+                                op +='<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
                                     '<div class="member-info">' +
@@ -48,12 +47,10 @@ $(document).ready(function () {
                                     '</div>' +
                                     '</div>' +
                                     '</div>' +
-                                    '</div>' +
                                     '</div>'
                             }).catch(function (error) {
                                 console.log(error)
-                                op+='<div class="row">' +
-                                    '<div class="col-lg-6">'+
+                                op+='<div class="col-lg-6">'+
                                 '<div class="member d-flex align-items-start">'+
                                     `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px" alt=""></div>`+
                                     '<div class="member-info">'+
@@ -67,14 +64,13 @@ $(document).ready(function () {
                                            '<a href=""> <i class="ri-linkedin-box-fill"></i></a>'+
                                         '</div>'+
                                     '</div>'+
-                                '</div>'+
+                                    '</div>'+
                                 '</div>'+ 
                                 '</div>'
                             })
 
                         } else {
-                            op +='<div class="row">' +
-                                '<div class="col-lg-6">' +
+                            op +='<div class="col-lg-6">' +
                                 '<div class="member d-flex align-items-start">' +
                                 `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" alt=""></div>` +
                                 '<div class="member-info">' +
