@@ -95,7 +95,7 @@ $(document).ready(function () {
                 })
 
              //recuperation des doctorants du laboratoire
-             backendApi.get(`/followed-users/${user.phdStudents[0]._id}`)
+             backendApi.get(`/FollowedUsers/${user.phdStudents[0]._id}`)
              .then(function (response) {
                  var phdStudents = $('#phdStudentsInfo');
                  var op = "";
