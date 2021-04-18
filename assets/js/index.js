@@ -94,12 +94,6 @@ $(document).ready(function () {
                     console.log(error)
                 })
 
-             
-
-
-
-
-
 
         })
         .catch(function (error) {
