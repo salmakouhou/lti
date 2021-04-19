@@ -110,7 +110,7 @@ backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`)
                '<div class="testimonial-item">' +
                '<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">'+
                `<h3>${user.firstName} ${user.lastName}</h3>`
-                   `<h4>${user.roles}</h4>`
+                   
                    '<p><i class="bx bxs-quote-alt-left quote-icon-left"></i> desc <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>'+
                '</div>'+
                '</div>'
@@ -127,7 +127,7 @@ backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`)
                '<div class="testimonial-item">' +
                '<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">'+
                 `<h3>${user.firstName} ${user.lastName}</h3>`
-                   `<h4>${user.roles}</h4>`
+                   
                    '<p><i class="bx bxs-quote-alt-left quote-icon-left"></i> desc <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>'+
                '</div>'+
                '</div>'
@@ -147,7 +147,7 @@ backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`)
                '<div class="testimonial-item">' +
                '<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">'+
                 `<h3>${user.firstName} ${user.lastName}</h3>`
-                   `<h4>${user.roles}</h4>`
+                   
                    '<p><i class="bx bxs-quote-alt-left quote-icon-left"></i> desc <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>'+
                '</div>'+
                '</div>'+
