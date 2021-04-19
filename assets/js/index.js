@@ -32,7 +32,7 @@ $(document).ready(function () {
                         //s'il possede une image de profile
                         if ((user.profilePicture != null || user.profilePicture != undefined)) {
                             backendApi.get(`https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}`).then(function (response) {
-                                op +='<div class="col-lg-6">' +
+                                op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
                                     '<div class="member-info">' +
@@ -49,29 +49,29 @@ $(document).ready(function () {
                                     '</div>'
                             }).catch(function (error) {
                                 console.log(error)
-                                op+='<div class="col-lg-6">'+
-                                '<div class="member d-flex align-items-start">'+
-                                    `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px" alt=""></div>`+
-                                    '<div class="member-info">'+
-                                        `<h4>Prof. ${user.firstName} ${user.lastName}</h4>`+
-                                        `<h6>${user.roles}</h6>` +
-                                        `<span></span>`+
-                                        '<div class="social">'+
-                                            '<a href=""><i class="ri-twitter-fill"></i></a>'+
-                                            '<a href=""><i class="ri-facebook-fill"></i></a>'+
-                                            '<a href=""><i class="ri-instagram-fill"></i></a>'+
-                                           '<a href=""> <i class="ri-linkedin-box-fill"></i></a>'+
-                                        '</div>'+
-                                    '</div>'+
-                                    '</div>'+
-                                '</div>'+ 
-                                '</div>'
+                                op += '<div class="col-lg-6">' +
+                                    '<div class="member d-flex align-items-start">' +
+                                    `<div><img class="sp_img" src="http://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px" alt=""></div>` +
+                                    '<div class="member-info">' +
+                                    `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
+                                    `<h6>${user.roles}</h6>` +
+                                    `<span></span>` +
+                                    '<div class="social">' +
+                                    '<a href=""><i class="ri-twitter-fill"></i></a>' +
+                                    '<a href=""><i class="ri-facebook-fill"></i></a>' +
+                                    '<a href=""><i class="ri-instagram-fill"></i></a>' +
+                                    '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>'
                             })
 
                         } else {
-                            op +='<div class="col-lg-6">' +
+                            op += '<div class="col-lg-6">' +
                                 '<div class="member d-flex align-items-start">' +
-                                `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" alt=""></div>` +
+                                `<div><img class="sp_img" src="http://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" alt=""></div>` +
                                 '<div class="member-info">' +
                                 `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
                                 `<h6>${user.roles}</h6>` +
@@ -95,71 +95,92 @@ $(document).ready(function () {
                 })
 
 
-//recuperation des doctorants du laboratoire
-backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`)
-.then(function (response) {
-    var phdStudents = $('#phdStudentsInfo');
-    var op = "";
-    response.data.forEach((user) => {
-
-           //s'il possede une image de profile
-           if ((user.profilePicture != null || user.profilePicture != undefined)) {
-               backendApi.get(`https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}`).then(function (response) {   
-               op+= '<div class="owl-carousel testimonials-carousel"> '+  
-               '<div class="testimonial-wrap">' +
-               '<div class="testimonial-item">' +
-               '<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">'+
-               `<h3>${user.firstName} ${user.lastName}</h3>`
-                   
-                   '<p><i class="bx bxs-quote-alt-left quote-icon-left"></i> desc <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>'+
-               '</div>'+
-               '</div>'
-               
-
-           }).catch(function (error) {
-               console.log(error)
-
-               op+='<div class="col-lg-6">'+
-               '<div class="member d-flex align-items-start">'+
-               `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px" alt=""></div>`+
-               '<div class="owl-carousel testimonials-carousel">' +  
-               '<div class="testimonial-wrap">' +
-               '<div class="testimonial-item">' +
-               '<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">'+
-                `<h3>${user.firstName} ${user.lastName}</h3>`
-                   
-                   '<p><i class="bx bxs-quote-alt-left quote-icon-left"></i> desc <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>'+
-               '</div>'+
-               '</div>'
-               '</div>'+
-               '</div>'+
-               '</div>'
+            //doctorants
+            backendApi.get(`/phdStudentsLabs/`)
+                .then(function (response) {
+                    var op = '';
+                    response.data.students.forEach((doctor) => {
+                        op += '<div class="card col-lg-6">' +
+                            '<div class="member d-flex align-items-start">' +
+                            `<div><img class="sp_img" src="http://ui-avatars.com/api/?name=${doctor.firstName}+${doctor.lastName}" style="height:64px;width:64px" alt=""></div>` +
+                            '<div class="member-info">' +
+                            `<h4>Prof. ${doctor.firstName} ${doctor.lastName}</h4>` +
+                            `<span></span>` +
+                            '<div class="social">' +
+                            '<a href=""><i class="ri-twitter-fill"></i></a>' +
+                            '<a href=""><i class="ri-facebook-fill"></i></a>' +
+                            '<a href=""><i class="ri-instagram-fill"></i></a>' +
+                            '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>'
+                    })
+                    var phdStudents = $('#phdStudentsInfo');
+                    phdStudents.html(op)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
 
 
-           })
+            //publications
+            backendApi.get('/followed-users', { params: { "laboratory_abbreviation": "LTI" } })
+                .then(function (response) {
 
-           } else {
-               op += '<div class="col-lg-6">' +
-               '<div class="member d-flex align-items-start">' +
-               `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" alt=""></div>` +
-               '<div class="owl-carousel testimonials-carousel">' +  
-               '<div class="testimonial-wrap">' +
-               '<div class="testimonial-item">' +
-               '<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">'+
-                `<h3>${user.firstName} ${user.lastName}</h3>`
-                   
-                   '<p><i class="bx bxs-quote-alt-left quote-icon-left"></i> desc <i class="bx bxs-quote-alt-right quote-icon-right"></i></p>'+
-               '</div>'+
-               '</div>'+
-               '</div>'+
-               '</div>'+
-               '</div>'
-               }
-           })
-           phdStudents.html(op)
+                    var pubs = new Map()
+                    response.data.forEach((data) => {
+                        data.publications.forEach((pub) => {
+                            pubs.set(pub.title.toLowerCase(), pub)
+                        })
+                    })
+                    pubs = Array.from(pubs).map((pub) => { return pub[1] })
 
-       }).catch(function (error) {
-           console.log(error)
-       })
+                    var pubData = new Map();
+                    pubs.forEach((pub) => {
+                        var temp = new Array();
+                        temp.push(pub)
+                        if (pubData.get(pub.year)) {
+                            pubData.set(pub.year, pubData.get(pub.year).concat(temp))
+                        } else {
+                            pubData.set(pub.year, temp)
+                        }
+                    })
 
-        })})
+                    var keys = pubData.keys();
+                    var mainOp='';
+                    var i =1;
+                    Array.from(keys).forEach((key) => {
+                        var pubs = pubData.get(key);
+                        var op = `<li data-aos="fade-up" data-aos-delay="300">
+                        <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-${i}"
+                            class="collapsed">${key}<i class="bx bx-chevron-down icon-show"></i><i
+                                class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="faq-list-${i}" class="collapse" data-parent=".faq-list">
+                            <p >
+                            `;
+                        pubs.forEach((publications) => {
+
+                            op += `<i style="margin-bottom:15px;" class="bx bx-cube-alt"> ${publications.authors.join(', ')}, et al. "${publications.title}"
+                            ${publications.source}.
+                        </i>`
+                        })
+                        op += `</p>
+                        </div>
+                    </li>`
+                    mainOp+=op;
+                    i=i+1;
+                    })
+
+                    $("#pubs").html(mainOp)
+
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+
+
+
+        })
+})
