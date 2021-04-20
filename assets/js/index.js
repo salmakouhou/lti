@@ -106,7 +106,7 @@ $(document).ready(function () {
                             '<div class="member-info">' +
                             `<h4>Prof. ${doctor.firstName} ${doctor.lastName}</h4>` +
                             `<span></span>` +
-                            `<h6>${user.roles}</h6>` +
+                            `<h6>Doctorant</h6>` +
                             '</div>' +
                             '</div>' +
                             '</div>' +
