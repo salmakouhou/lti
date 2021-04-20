@@ -102,7 +102,7 @@ $(document).ready(function () {
                     response.data.students.forEach((doctor) => {
                         op +='<div class="testimonial-wrap">' +
                             '<div class="testimonial-item">' +
-                            `<div><img class="sp_img" src="http://ui-avatars.com/api/?name=${doctor.firstName}+${doctor.lastName}" style="height:64px;width:64px" alt=""></div>` +
+                            `<div><img class="testimonial-img" src="http://ui-avatars.com/api/?name=${doctor.firstName}+${doctor.lastName}"  alt=""></div>` +
                             '<div class="member-info">' +
                             `<h4>Prof. ${doctor.firstName} ${doctor.lastName}</h4>` +
                             `<span></span>` +
