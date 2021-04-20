@@ -98,9 +98,9 @@ $(document).ready(function () {
             //doctorants
             backendApi.get(`/phdStudentsLabs/`)
                 .then(function (response) {
-                    var op = '';
+                    var content = '';
                     response.data.students.forEach((doctor) => {
-                        op +='<div class="testimonial-wrap">' +
+                        content +='<div class="testimonial-wrap">' +
                             '<div class="testimonial-item">' +
                             `<div><img class="testimonial-img" src="http://ui-avatars.com/api/?name=${doctor.firstName}+${doctor.lastName}"  alt=""></div>` +
                             '<div class="member-info">' +
@@ -113,8 +113,16 @@ $(document).ready(function () {
                             '</div>' +
                             '</div>'
                     })
-                    var phdStudents = $('#phdStudentsInfo');
-                    phdStudents.html(op)
+                    var carousel = $('#phdStudentsInfo');
+                    carousel.trigger('destroy.owl.carousel'); 
+                    carousel.find('.owl-stage-outer').children().unwrap();
+                    carousel.removeClass("owl-center owl-loaded owl-text-select-on");
+
+                   
+                    carousel.html(content);
+
+                    //reinitialize the carousel (call here your method in which you've set specific carousel properties)
+                    carousel.owlCarousel();
                 })
                 .catch(function (error) {
                     console.log(error)
