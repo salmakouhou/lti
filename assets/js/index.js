@@ -160,10 +160,9 @@ $(document).ready(function () {
                     })
 
                     var keys = pubData.keys();
-                   
                     var mainOp='';
                     var i =1;
-                    Array.from(keys).forEach((key) => {
+                    Array.from(keys).sort().forEach((key) => {
                         var pubs = pubData.get(key);
                         var op = `<li data-aos="fade-up" data-aos-delay="300">
                         <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-${i}"
