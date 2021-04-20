@@ -123,11 +123,11 @@ $(document).ready(function () {
 
                     //reinitialize the carousel (call here your method in which you've set specific carousel properties)
                     carousel.owlCarousel({
-                        items: 3,
+                        items: 2,
                         loop: true,
                         margin: 10,
                         autoplay: true,
-                        autoplayTimeout: 1000,
+                        autoplayTimeout: 10000,
                         autoplayHoverPause: true
                     });
                 })
