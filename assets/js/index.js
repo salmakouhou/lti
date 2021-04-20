@@ -100,17 +100,13 @@ $(document).ready(function () {
                 .then(function (response) {
                     var op = '';
                     response.data.students.forEach((doctor) => {
-                        op += '<div class="card col-lg-6">' +
-                            '<div class="member d-flex align-items-start">' +
+                        op += '<div class="testimonial-wrap">' +
+                            '<div class="testimonial-item">' +
                             `<div><img class="sp_img" src="http://ui-avatars.com/api/?name=${doctor.firstName}+${doctor.lastName}" style="height:64px;width:64px" alt=""></div>` +
                             '<div class="member-info">' +
                             `<h4>Prof. ${doctor.firstName} ${doctor.lastName}</h4>` +
                             `<span></span>` +
-                            '<div class="social">' +
-                            '<a href=""><i class="ri-twitter-fill"></i></a>' +
-                            '<a href=""><i class="ri-facebook-fill"></i></a>' +
-                            '<a href=""><i class="ri-instagram-fill"></i></a>' +
-                            '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
+                            '<`<h4>${doctor.roles}</h4>`' +
                             '</div>' +
                             '</div>' +
                             '</div>' +
