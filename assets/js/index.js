@@ -50,12 +50,12 @@ $(document).ready(function () {
                                     '</div>' +
                                     '</div>'
                             }).catch(function (error) {
-                              //  console.log(error)
-                                  var userR = [];
-                                     for ( var i = 0 ; i < user.length ; i++){
-                                    userR[i] = user.roles;
+                              console.log(error)
+                                  //var userR = [];
+                                   //  for ( var i = 0 ; i < user.length ; i++){
+                                   // userR[i] = user.roles;
 
-                                }
+                                //}
                                 alert(userR);
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
