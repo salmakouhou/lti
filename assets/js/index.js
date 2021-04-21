@@ -31,13 +31,9 @@ $(document).ready(function () {
 
                         //s'il possede une image de profile
                         if ((user.profilePicture != null || user.profilePicture != undefined)) {
-                             var userR = [];
+                           
                             backendApi.get(`https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}`).then(function (response) {
-                                for ( var i = 0 ; i < response.length ; i++){
-                                    userR[i] = user.roles;
-
-                                }
-                                console.log(userR);
+                           
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
@@ -54,7 +50,13 @@ $(document).ready(function () {
                                     '</div>' +
                                     '</div>'
                             }).catch(function (error) {
-                                console.log(error)
+                              //  console.log(error)
+                                  var userR = [];
+                                     for ( var i = 0 ; i < user.length ; i++){
+                                    userR[i] = user.roles;
+
+                                }
+                                alert(userR);
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="http://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px" alt=""></div>` +
