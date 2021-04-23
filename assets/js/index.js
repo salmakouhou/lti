@@ -51,12 +51,7 @@ $(document).ready(function () {
                                     '</div>'
                             }).catch(function (error) {
                               console.log(error)
-                                 var userR = [];
-                                  for ( var i = 0 ; i < response.length ; i++){
-                                  userR[i] = user.roles;
-                                  if (user.roles.includes("CED_HEAD")) return ["chef de CED"];
-                                  if (user.roles.includes("VICE_CED_HEAD")) return ["Vice Président Chargé de la Recherche Scientifique"];
-                                }
+                                 
                                 
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
