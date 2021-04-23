@@ -56,7 +56,6 @@ $(document).ready(function () {
                                    // userR[i] = user.roles;
 
                                 //}
-                                alert(userR);
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="http://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px" alt=""></div>` +
