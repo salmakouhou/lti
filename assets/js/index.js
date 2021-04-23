@@ -111,7 +111,7 @@ $(document).ready(function () {
                             '<div class="testimonial-item">' +
                             `<div><img class="testimonial-img" src="http://ui-avatars.com/api/?name=${phdStudent.firstName}+${phdStudent.lastName}"  alt=""></div>` +
                             '<div class="member-info">' +
-                            `<h4>${phdStudent.firstName} ${phdStudent.lastName}</h4>` +
+                            `<h2>${phdStudent.firstName} ${phdStudent.lastName}</h2>` +
                             `<span></span>` +
                             `<h6>Directeur de thèse : ${phdStudent.supervisor}</h6>` +
                             `<h6>Co-Directeur de thèse : ${phdStudent.coSupervisor}</h6>` +
