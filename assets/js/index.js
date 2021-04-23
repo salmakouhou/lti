@@ -51,13 +51,13 @@ $(document).ready(function () {
                                     '</div>'
                             }).catch(function (error) {
                               console.log(error)
-                                  //var userR = [];
-                                   //  for ( var i = 0 ; i < user.length ; i++){
-                                   // userR[i] = user.roles;
-
-                                //}
-                                if (user.roles.includes("CED_HEAD")) return ["chef de CED"];
-                                if (user.roles.includes("VICE_CED_HEAD")) return ["Vice Président Chargé de la Recherche Scientifique"];
+                                 var userR = [];
+                                  for ( var i = 0 ; i < response.length ; i++){
+                                  userR[i] = user.roles;
+                                  if (user.roles.includes("CED_HEAD")) return ["chef de CED"];
+                                  if (user.roles.includes("VICE_CED_HEAD")) return ["Vice Président Chargé de la Recherche Scientifique"];
+                                }
+                                
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="http://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" style="height:64px;width:64px" alt=""></div>` +
