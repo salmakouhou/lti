@@ -111,9 +111,11 @@ $(document).ready(function () {
                             '<div class="testimonial-item">' +
                             `<div><img class="testimonial-img" src="http://ui-avatars.com/api/?name=${doctor.firstName}+${doctor.lastName}"  alt=""></div>` +
                             '<div class="member-info">' +
-                            `<h4>Prof. ${doctor.firstName} ${doctor.lastName}</h4>` +
+                            `<h4>${doctor.firstName} ${doctor.lastName}</h4>` +
                             `<span></span>` +
-                            `<h6>Doctorant</h6>` +
+                            `<h6>Directeur de thèse : ${doctor.supervisor}</h6>` +
+                            `<h6>Co-Directeur de thèse : </h6>` +
+                            `<h6>Intitulé de la thèse : </h6>` +
                             '</div>' +
                             '</div>' +
                             '</div>' +
