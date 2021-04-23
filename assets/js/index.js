@@ -113,9 +113,9 @@ $(document).ready(function () {
                             '<div class="member-info">' +
                             `<h3>${phdStudent.firstName} ${phdStudent.lastName}</h3>` +
                             `<span></span>` +
-                            `<h6>Directeur de thèse : ${phdStudent.supervisor}</h6>` +
-                            `<h6>Co-Directeur de thèse : ${phdStudent.coSupervisor}</h6>` +
-                            `<h6>Intitulé de la thèse : ${phdStudent.thesisTitle}</h6>` +
+                            `<h6><strong>Directeur de thèse :</strong> ${phdStudent.supervisor}</h6>` +
+                            `<h6><strong>Co-Directeur de thèse :</strong> ${phdStudent.coSupervisor}</h6>` +
+                            `<h6><strong>Intitulé de la thèse :</strong> ${phdStudent.thesisTitle}</h6>` +
                             '</div>' +
                             '</div>' +
                             '</div>' +
