@@ -106,14 +106,14 @@ $(document).ready(function () {
             backendApi.get(`/phdStudentsLabs/`)
                 .then(function (response) {
                     var content = '';
-                    response.data.students.forEach((doctor) => {
+                    response.data.students.forEach((phdStudent) => {
                         content +='<div class="testimonial-wrap">' +
                             '<div class="testimonial-item">' +
-                            `<div><img class="testimonial-img" src="http://ui-avatars.com/api/?name=${doctor.firstName}+${doctor.lastName}"  alt=""></div>` +
+                            `<div><img class="testimonial-img" src="http://ui-avatars.com/api/?name=${phdStudent.firstName}+${phdStudent.lastName}"  alt=""></div>` +
                             '<div class="member-info">' +
-                            `<h4>${doctor.firstName} ${doctor.lastName}</h4>` +
+                            `<h4>${phdStudent.firstName} ${phdStudent.lastName}</h4>` +
                             `<span></span>` +
-                            `<h6>Directeur de thèse : ${doctor.supervisor}</h6>` +
+                            `<h6>Directeur de thèse : ${phdStudent.supervisor}</h6>` +
                             `<h6>Co-Directeur de thèse : </h6>` +
                             `<h6>Intitulé de la thèse : </h6>` +
                             '</div>' +
