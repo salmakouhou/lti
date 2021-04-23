@@ -115,7 +115,7 @@ $(document).ready(function () {
                             `<span></span>` +
                             `<h6>Directeur de thèse : ${phdStudent.supervisor}</h6>` +
                             `<h6>Co-Directeur de thèse : </h6>` +
-                            `<h6>Intitulé de la thèse : </h6>` +
+                            `<h6>Intitulé de la thèse : ${phdStudent.thesisTitle}</h6>` +
                             '</div>' +
                             '</div>' +
                             '</div>' +
