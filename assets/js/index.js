@@ -75,7 +75,7 @@ $(document).ready(function () {
                         } else {
                             op += '<div class="col-lg-6">' +
                                 '<div class="member d-flex align-items-start">' +
-                                `<div><img class="sp_img" src="http://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" alt=""></div>` +
+                                `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}" alt=""></div>` +
                                 '<div class="member-info">' +
                                 `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
                                 `<h6>${user.roles}</h6>` +
@@ -106,7 +106,7 @@ $(document).ready(function () {
                     response.data.students.forEach((phdStudent) => {
                         content +='<div class="testimonial-wrap">' +
                             '<div class="testimonial-item">' +
-                            `<div><img class="testimonial-img" src="http://ui-avatars.com/api/?name=${phdStudent.firstName}+${phdStudent.lastName}"  alt=""></div>` +
+                            `<div><img class="testimonial-img" src="https://ui-avatars.com/api/?name=${phdStudent.firstName}+${phdStudent.lastName}"  alt=""></div>` +
                             '<div class="member-info">' +
                             `<h3>${phdStudent.firstName} ${phdStudent.lastName}</h3>` +
                             `<span></span>` +
