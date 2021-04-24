@@ -50,7 +50,7 @@ $(document).ready(function () {
                                     '</div>' +
                                     '</div>'
                             }).catch(function (error) {
-                              console.log(error)
+                             // console.log(error)
                                  
                                 
                                 op += '<div class="col-lg-6">' +
