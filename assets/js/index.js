@@ -179,7 +179,7 @@ $(document).ready(function () {
                             `;
                         pubs.forEach((publications) => {
 
-                            op += `<i style="margin-bottom:15px;" class="bx bx-cube-alt"> ${publications.authors.join(', ')}, "${publications.title}"
+                            op += `<i style="margin-bottom:15px;" class="bx bx-cube-alt"> ${publications.authors.join(', ')}, "${publications.title}",
                             ${publications.source}.
                         </i>`
                         })
