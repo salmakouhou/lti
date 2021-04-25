@@ -23,7 +23,7 @@ $(document).ready(function () {
             });
 
             //recuperation des utilisateurs du laboratoire
-            backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`)
+            backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`, { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
                     var chercheurs = $('#chercheursInfo');
                     var op = "";
