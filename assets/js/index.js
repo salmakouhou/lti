@@ -1,4 +1,16 @@
 $(document).ready(function () {
+    
+    const bindRole = (role) => {
+        if (role === "RESEARCHER") return "Chercheur";
+        if (role === "CED_HEAD") return "Chef de CED";
+        if (role === "TEAM_HEAD") return "Chef d'équipe";
+        if (role === "VICE_CED_HEAD") return "Vice Président Chargé de la Recherche Scientifique";
+    }
+    
+    const convertRoles = (roles) => {
+        return roles.map(({ role }) => bindRole(role)).join(" , "));
+    }
+    
     //instance d'authentification 
     const backendApiNoAuth = axios.create({
         baseURL: "https://app-rs-backend.herokuapp.com/auth",
@@ -41,7 +53,7 @@ $(document).ready(function () {
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
                                     '<div class="member-info">' +
-                                    `<h6>${user.roles}</h6>` +
+                                    `<h6>${convertRoles(user.roles)}</h6>` +
                                     `<span></span>` +
                                     '<div class="social">' +
                                     '<a href=""><i class="ri-twitter-fill"></i></a>' +
