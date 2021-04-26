@@ -8,7 +8,7 @@ $(document).ready(function () {
     }
     
     function convertRoles(roles){
-        console.log("HHHHHHHHHHHHHHHHHHHHHHH");
+        //console.log("HHHHHHHHHHHHHHHHHHHHHHH");
         return roles.map(function(role){ return bindRole(role) ;});
     }
     
@@ -44,8 +44,8 @@ $(document).ready(function () {
                     var chercheurs = $('#chercheursInfo');
                     var op = "";
                     response.data.forEach((user) => {
-                        user.roles.push(convertRoles(user.roles));
-                        console.log(convertRoles(user.roles));
+                        user.roles = convertRoles(user.roles);
+                        //console.log(convertRoles(user.roles));
                         //s'il possede une image de profile
                         if ((user.profilePicture != null || user.profilePicture != undefined)) {
                            
