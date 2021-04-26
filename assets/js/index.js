@@ -44,7 +44,8 @@ $(document).ready(function () {
                     var chercheurs = $('#chercheursInfo');
                     var op = "";
                     response.data.forEach((user) => {
-
+                        user.roles.push(convertRoles(user.roles));
+                        console.log(convertRoles(user.roles));
                         //s'il possede une image de profile
                         if ((user.profilePicture != null || user.profilePicture != undefined)) {
                            
