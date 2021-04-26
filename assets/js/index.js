@@ -1,6 +1,19 @@
 $(document).ready(function () {
     
-    function bindRole(role){
+    function bindSupervisor(supervisors){
+        if (supervisors === "5f40f52e95de870017abef2a") return "Kartit Ali";
+        if (supervisors === "5f40f52e95de870017abef22 ") return "Ouahmane Hassan";
+        if (supervisors === "5f3d39fdc685e0001744004d") return "Hassan OUAHMANE";
+        if (supervisors === "5f3d39fdc685e00017440055 ") return "Ali KARTIT";
+    }
+    
+    function convertSupervisors(supervisor){
+        //console.log("HHHHHHHHHHHHHHHHHHHHHHH");
+        return supervisor.map(function(supervisors){ return bindSupervisor(supervisors) ;});
+    }
+    
+    /////////////////////////////////////////////
+     function bindRole(role){
         if (role === "RESEARCHER") return "Chercheur";
         if (role === "CED_HEAD") return "Chef de CED";
         if (role === "TEAM_HEAD") return "Chef d'équipe";
@@ -11,7 +24,7 @@ $(document).ready(function () {
         //console.log("HHHHHHHHHHHHHHHHHHHHHHH");
         return roles.map(function(role){ return bindRole(role) ;});
     }
-    
+    /////////////////////////////////////////////////
     //instance d'authentification 
     const backendApiNoAuth = axios.create({
         baseURL: "https://app-rs-backend.herokuapp.com/auth",
@@ -127,7 +140,7 @@ $(document).ready(function () {
                             '<div class="member-info">' +
                             `<h3>${phdStudent.firstName} ${phdStudent.lastName}</h3>` +
                             `<span></span>` +
-                            `<h6><strong>Directeur de thèse :</strong> ${user.supervisor}</h6>` +
+                            `<h6><strong>Directeur de thèse :</strong> ${convertSupervisors(phdStudent.supervisor)}</h6>` +
                             `<h6><strong>Co-Directeur de thèse :</strong> ${user.coSupervisor}</h6>` +
                             `<h6><strong>Intitulé de la thèse :</strong> ${phdStudent.thesisTitle}</h6>` +
                             '</div>' +
