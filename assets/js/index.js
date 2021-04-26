@@ -8,7 +8,7 @@ $(document).ready(function () {
     }
     
     const convertRoles = (roles) => {
-        return roles.map(({ role }) => bindRole(role)).join(" , "));
+        return roles.map(({ role }) => bindRole(role)).join(" , ");
     }
     
     //instance d'authentification 
