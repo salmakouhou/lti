@@ -8,7 +8,7 @@ $(document).ready(function () {
     }
     
     function convertRoles(roles){
-        console.log(roles.map(({ role }) => bindRole(role)).join(" , "));
+        console.log("HHHHHHHHHHHHHHHHHHHHHHH");
         return roles.map(function(role){ return bindRole(role) ;});
     }
     
