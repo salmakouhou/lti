@@ -23,13 +23,9 @@ $(document).ready(function () {
             });
 
             //recuperation des utilisateurs du laboratoire
+            
+            //backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`)
             backendApi.get(`/followed-users`, { params: { "laboratory_abbreviation": user.laboratoriesHeaded[0].abbreviation } })
-                .then(function (response) {
-                
-                console.log(response);
-                
-                })
-            backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`)
                 .then(function (response) {
                     console.log(response);
                     var chercheurs = $('#chercheursInfo');
