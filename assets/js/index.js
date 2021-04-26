@@ -127,8 +127,8 @@ $(document).ready(function () {
                             '<div class="member-info">' +
                             `<h3>${phdStudent.firstName} ${phdStudent.lastName}</h3>` +
                             `<span></span>` +
-                            `<h6><strong>Directeur de thèse :</strong> ${phdStudent.supervisor}</h6>` +
-                            `<h6><strong>Co-Directeur de thèse :</strong> ${phdStudent.coSupervisor}</h6>` +
+                            `<h6><strong>Directeur de thèse :</strong> $user.supervisor}</h6>` +
+                            `<h6><strong>Co-Directeur de thèse :</strong> ${user.coSupervisor}</h6>` +
                             `<h6><strong>Intitulé de la thèse :</strong> ${phdStudent.thesisTitle}</h6>` +
                             '</div>' +
                             '</div>' +
