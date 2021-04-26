@@ -9,7 +9,7 @@ $(document).ready(function () {
     
     function convertRoles(roles){
         console.log(roles.map(({ role }) => bindRole(role)).join(" , "));
-        return roles.map(role => bindRole(role)).join(" , ");
+        return roles.map(function(role){ return bindRole(role) ;});
     }
     
     //instance d'authentification 
