@@ -24,8 +24,8 @@ $(document).ready(function () {
 
             //recuperation des utilisateurs du laboratoire
             
-            //backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`)
-            backendApi.get(`/followed-users`, { params: { "laboratory_abbreviation": user.laboratoriesHeaded[0].abbreviation } })
+            //backendApi.get(`/followed-users`, { params: { "laboratory_abbreviation": user.laboratoriesHeaded[0].abbreviation } })
+            backendApi.get(`/labUsers/5f40f53095de870017abef56}`)
                 .then(function (response) {
                     console.log(response);
                     var chercheurs = $('#chercheursInfo');
@@ -33,7 +33,7 @@ $(document).ready(function () {
                     response.data.forEach((user) => {
 
                         //s'il possede une image de profile
-                        if ((user.profilePicture != "" || user.profilePicture != undefined)) {
+                        if ((user.profilePicture != null || user.profilePicture != undefined)) {
                            
                             backendApi.get(`https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}`).then(function (response) {
                            
