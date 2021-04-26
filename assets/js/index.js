@@ -1,15 +1,15 @@
 $(document).ready(function () {
     
-    const bindRole = (role) => {
+    function bindRole(role){
         if (role === "RESEARCHER") return "Chercheur";
         if (role === "CED_HEAD") return "Chef de CED";
         if (role === "TEAM_HEAD") return "Chef d'équipe";
         if (role === "VICE_CED_HEAD") return "Vice Président Chargé de la Recherche Scientifique";
     }
     
-    const convertRoles = (roles) => {
+    function convertRoles(roles){
         console.log(roles.map(({ role }) => bindRole(role)).join(" , "));
-        return roles.map(({ role }) => bindRole(role)).join(" , ");
+        return roles.map(role => bindRole(role)).join(" , ");
     }
     
     //instance d'authentification 
