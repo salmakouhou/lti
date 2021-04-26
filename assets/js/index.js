@@ -130,7 +130,7 @@ $(document).ready(function () {
 
 
             //doctorants
-            backendApi.get(`/phdStudentsLabs/`)
+            backendApi.get(`/phdStudentsLabs/5f40f53095de870017abef56`)
                 .then(function (response) {
                     var content = '';
                     response.data.students.forEach((phdStudent) => {
