@@ -163,6 +163,10 @@ $(document).ready(function () {
                         } else {
                             pubData.set(pub.year, temp)
                         }
+                       // if ($publications.source != NULL){
+                        //    var{ $publications.source} 
+                         
+                            
                     })
 
                     var keys = pubData.keys();
@@ -179,7 +183,8 @@ $(document).ready(function () {
                             `;
                         pubs.forEach((publications) => {
 
-                            op += `<i style="margin-bottom:15px;" class="bx bx-cube-alt"> ${publications.authors.join(', ')}, "${publications.title}", "${publications.source}".
+                            op += `<i style="margin-bottom:15px;" class="bx bx-cube-alt"> ${publications.authors.join(', ')}, "${publications.title}"
+                            ,${publications.source}.
                         </i>`
                         })
                         op += `</p>
@@ -193,7 +198,7 @@ $(document).ready(function () {
 
                 })
                 .catch(function (error) {
-                    //console.log(error)
+                    console.log(error)
                 })
 
 
