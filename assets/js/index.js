@@ -25,6 +25,7 @@ $(document).ready(function () {
             //recuperation des utilisateurs du laboratoire
             backendApi.get(`/labUsers/${user.laboratoriesHeaded[0]._id}`)
                 .then(function (response) {
+                    console.log(response);
                     var chercheurs = $('#chercheursInfo');
                     var op = "";
                     response.data.forEach((user) => {
