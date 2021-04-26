@@ -33,7 +33,7 @@ $(document).ready(function () {
                     response.data.forEach((user) => {
 
                         //s'il possede une image de profile
-                        if ((user.profilePicture != null || user.profilePicture != undefined)) {
+                        if ((user.profilePicture != "" || user.profilePicture != undefined)) {
                            
                             backendApi.get(`https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}`).then(function (response) {
                            
