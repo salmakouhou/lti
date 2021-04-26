@@ -7,7 +7,7 @@ $(document).ready(function () {
         if (supervisors === "5f3d39fdc685e00017440055 ") return "Ali KARTIT";
     }
     
-    function convertSupervisors(supervisor){
+    function convertSupervisor(supervisor){
         //console.log("HHHHHHHHHHHHHHHHHHHHHHH");
         return supervisor.map(function(supervisors){ return bindSupervisor(supervisors) ;});
     }
@@ -140,7 +140,7 @@ $(document).ready(function () {
                             '<div class="member-info">' +
                             `<h3>${phdStudent.firstName} ${phdStudent.lastName}</h3>` +
                             `<span></span>` +
-                            `<h6><strong>Directeur de thèse :</strong> ${phdStudent.supervisor}</h6>` +
+                            `<h6><strong>Directeur de thèse :</strong>${convertSupervisor(phdStudent.supervisor)}</h6>` +
                             `<h6><strong>Co-Directeur de thèse :</strong> ${user.coSupervisor}</h6>` +
                             `<h6><strong>Intitulé de la thèse :</strong> ${phdStudent.thesisTitle}</h6>` +
                             '</div>' +
