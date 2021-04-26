@@ -23,7 +23,7 @@ $(document).ready(function () {
             });
 
             //recuperation des utilisateurs du laboratoire
-            backendApi.get(`/followed-users`, { params: { "laboratory_abbreviation": connectedUser.laboratoriesHeaded[0].abbreviation } })
+            backendApi.get(`/followed-users`, { params: { "laboratory_abbreviation": user.laboratoriesHeaded[0].abbreviation } })
                 .then(function (response) {
                 
                 console.log(response);
