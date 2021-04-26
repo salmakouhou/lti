@@ -199,10 +199,19 @@ $(document).ready(function () {
                             <p >
                             `;
                         pubs.forEach((publications) => {
+                            
+                             if ((publications.source != null || publications.source != undefined)) {
 
                             op += `<i style="margin-bottom:15px;" class="bx bx-cube-alt"> ${publications.authors.join(', ')}, "${publications.title}"
                             , ${publications.source}.
                         </i>`
+                             }else {
+                             
+                            op += `<i style="margin-bottom:15px;" class="bx bx-cube-alt"> ${publications.authors.join(', ')}, "${publications.title}"
+                            
+                        </i>`
+                                 
+                             }
                         })
                         op += `</p>
                         </div>
