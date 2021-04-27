@@ -250,7 +250,20 @@ $(document).ready(function () {
                 .catch(function (error) {
                     console.log(error)
                 })
+              
+               // count teams
+                backendApi.get('/teams', { params: { "laboratory_abbreviation": "LTI" } })
+                .then(function (response) {
+                console.log(response);
+                var teamsCount = $('#teamsCount');
+                    var nbr = ""+response.data.length;
+                    teamsCount.html(nbr);
 
+                 
+               
+                }).catch(function (error) {
+                    console.log(error)
+                })
 
 
         })
