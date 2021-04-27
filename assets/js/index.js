@@ -135,7 +135,9 @@ $(document).ready(function () {
             //doctorants
             backendApi.get(`/phdStudentsLabs`)
                 .then(function (response) {
+                    console.log(response);
                     var content = '';
+                    
                     response.data.students.forEach((phdStudent) => {
                         content +='<div class="testimonial-wrap">' +
                             '<div class="testimonial-item">' +
@@ -156,7 +158,9 @@ $(document).ready(function () {
                     carousel.trigger('destroy.owl.carousel'); 
                     carousel.find('.owl-stage-outer').children().unwrap();
                     carousel.removeClass("owl-center owl-loaded owl-text-select-on");
-
+                    var phdStudentsCount = $('#phdStudentsCount');
+                    var nbrr = ""+response.data.length;
+                    phdStudentsCount.html(nbrr);
                    
                     carousel.html(content);
 
