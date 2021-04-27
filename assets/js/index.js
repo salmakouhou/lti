@@ -1,5 +1,16 @@
 $(document).ready(function () {
     
+    //function bindSupervisor(supervisors){
+       // if (supervisors === "5f40f52e95de870017abef2a") return "Kartit Ali";
+       // if (supervisors === "5f40f52e95de870017abef22 ") return "Ouahmane Hassan";
+       // if (supervisors === "5f3d39fdc685e0001744004d") return "Hassan OUAHMANE";
+       // if (supervisors === "5f3d39fdc685e00017440055 ") return "Ali KARTIT";
+    //}
+    
+   // function convertSupervisor(supervisor){
+        //console.log("HHHHHHHHHHHHHHHHHHHHHHH");
+     //   return supervisor.map(function(supervisors){ return bindSupervisor(supervisors) ;});
+   // }
     
     /////////////////////////////////////////////
      function bindRole(role){
@@ -239,9 +250,11 @@ $(document).ready(function () {
                 .catch(function (error) {
                     console.log(error)
                 })
-              
-               // count teams
-                backendApi.get('/teams', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
+
+                ///////////////////////////////////////////
+                
+                // count teams
+                backendApi.get('/teams/', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
                 .then(function (response) {
                 console.log(response);
                 var teamsCount = $('#teamsCount');
@@ -254,6 +267,22 @@ $(document).ready(function () {
                     console.log(error)
                 })
 
+                //
+                backendApi.get('/phdStudents/', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
+                .then(function (response) {
+                console.log(response);
+                var phdStudentsCount = $('#phdStudentsCount');
+                    var nbr = ""+response.data.length;
+                    phdStudentsCount.html(nbr);
+
+                 
+               
+                }).catch(function (error) {
+                    console.log(error)
+                })
+
+
 
         })
 })
+
