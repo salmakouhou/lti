@@ -56,6 +56,9 @@ $(document).ready(function () {
                     console.log(response);
                     var chercheurs = $('#chercheursInfo');
                     var op = "";
+                    var chercheursCount = $('#chercheursCount');
+                    var nbr = ""+response.data.length;
+                    chercheursCount.html(nbr);
                     response.data.forEach((user) => {
                         user.roles = convertRoles(user.roles);
                         //console.log(convertRoles(user.roles));
