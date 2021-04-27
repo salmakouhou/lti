@@ -56,9 +56,9 @@ $(document).ready(function () {
                     console.log(response);
                     var chercheurs = $('#chercheursInfo');
                     var op = "";
-                    var chercheursCount = $('#chercheursCount');
-                    var nbr = ""+response.data.length;
-                    chercheursCount.html(nbr);
+                    //var chercheursCount = $('#chercheursCount');
+                    //var nbr = ""+response.data.length;
+                   // chercheursCount.html(nbr);
                     response.data.forEach((user) => {
                         user.roles = convertRoles(user.roles);
                         //console.log(convertRoles(user.roles));
@@ -182,6 +182,10 @@ $(document).ready(function () {
             //publications
             backendApi.get('/followed-users', { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
+                
+                var chercheursCount = $('#chercheursCount');
+                    var nbr = ""+response.data.length;
+                    chercheursCount.html(nbr);
 
                     var pubs = new Map()
                     response.data.forEach((data) => {
