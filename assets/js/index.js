@@ -1,18 +1,8 @@
 $(document).ready(function () {
     
-    //function bindSupervisor(supervisors){
-       // if (supervisors === "5f40f52e95de870017abef2a") return "Kartit Ali";
-       // if (supervisors === "5f40f52e95de870017abef22 ") return "Ouahmane Hassan";
-       // if (supervisors === "5f3d39fdc685e0001744004d") return "Hassan OUAHMANE";
-       // if (supervisors === "5f3d39fdc685e00017440055 ") return "Ali KARTIT";
-    //}
+
     
-   // function convertSupervisor(supervisor){
-        //console.log("HHHHHHHHHHHHHHHHHHHHHHH");
-     //   return supervisor.map(function(supervisors){ return bindSupervisor(supervisors) ;});
-   // }
-    
-    /////////////////////////////////////////////
+
      function bindRole(role){
         if (role === "RESEARCHER") return "Chercheur";
         if (role === "CED_HEAD") return "Chef de CED";
