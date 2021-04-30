@@ -16,7 +16,7 @@ $(document).ready(function () {
     /////////////////////////////////////////////////
     //instance d'authentification 
     const backendApiNoAuth = axios.create({
-        baseURL: "http://localhost:8888/auth",
+        baseURL: "https://app-rs-backend.herokuapp.com/auth",
         timeout: 80000,
         headers: { "Content-Type": "application/json" },
     });
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
             //instance de l'api apres l'authentification
             const backendApi = axios.create({
-                baseURL: "http://localhost:8888/api",
+                baseURL: "https://app-rs-backend.herokuapp.com/api",
                 timeout: 80000,
                 headers: {
                     "Content-Type": "application/json",
@@ -48,13 +48,13 @@ $(document).ready(function () {
                     response.data.forEach((user) => {
                         user.roles = convertRoles(user.roles);
                         //s'il possede une image de profile
+                        console.log(user.profilePicture)
                         if ((user.profilePicture!="")) {
-                            
-                            backendApi.get(`http://localhost:8888/pictures/${user.profilePicture}`).then(function (response) {
+                            backendApi.get(`https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}`).then(function (response) {
                            
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
-                                    `<div><img class="sp_img" src="http://localhost:8888/pictures/${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
+                                    `<div><img class="sp_img" src="${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
                                     '<div class="member-info">' +
                                     `<h6>${convertRoles(user.roles)}</h6>` +
                                     `<span></span>` +
