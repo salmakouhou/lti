@@ -11,13 +11,12 @@ $(document).ready(function () {
     }
     
     function convertRoles(roles){
-        //console.log("HHHHHHHHHHHHHHHHHHHHHHH");
         return roles.map(function(role){ return bindRole(role) ;});
     }
     /////////////////////////////////////////////////
     //instance d'authentification 
     const backendApiNoAuth = axios.create({
-        baseURL: "https://app-rs-backend.herokuapp.com/auth",
+        baseURL: "http://localhost:8888/auth",
         timeout: 80000,
         headers: { "Content-Type": "application/json" },
     });
@@ -30,7 +29,7 @@ $(document).ready(function () {
 
             //instance de l'api apres l'authentification
             const backendApi = axios.create({
-                baseURL: "https://app-rs-backend.herokuapp.com/api",
+                baseURL: "http://localhost:8888/api",
                 timeout: 80000,
                 headers: {
                     "Content-Type": "application/json",
@@ -40,26 +39,22 @@ $(document).ready(function () {
 
             //recuperation des utilisateurs du laboratoire
             
-            //backendApi.get(`/followed-users`, { params: { "laboratory_abbreviation": user.laboratoriesHeaded[0].abbreviation } })
-            backendApi.get(`/labUsers/5f40f53095de870017abef56`)
+          
+            backendApi.get(`/followed-users`, { params: { "laboratory_abbreviation": user.laboratoriesHeaded[0].abbreviation } })
                 .then(function (response) {
                     console.log(response);
                     var chercheurs = $('#chercheursInfo');
                     var op = "";
-                    //var chercheursCount = $('#chercheursCount');
-                    //var nbr = ""+response.data.length;
-                   // chercheursCount.html(nbr);
                     response.data.forEach((user) => {
                         user.roles = convertRoles(user.roles);
-                        //console.log(convertRoles(user.roles));
                         //s'il possede une image de profile
-                        if ((user.profilePicture != null || user.profilePicture != undefined)) {
-                           
-                            backendApi.get(`https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}`).then(function (response) {
+                        if ((user.profilePicture!="")) {
+                            
+                            backendApi.get(`http://localhost:8888/pictures/${user.profilePicture}`).then(function (response) {
                            
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
-                                    `<div><img class="sp_img" src="https://app-rs-backend.herokuapp.com/pictures/${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
+                                    //`<div><img class="sp_img" src="http://localhost:8888/pictures/${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
                                     '<div class="member-info">' +
                                     `<h6>${convertRoles(user.roles)}</h6>` +
                                     `<span></span>` +
@@ -125,11 +120,9 @@ $(document).ready(function () {
             //doctorants
             backendApi.get(`/phdStudentsLabs`)
                 .then(function (response) {
-                    console.log(response);
                     var content = '';
                     
                     response.data.students.forEach((phdStudent) => {
-                        console.log(phdStudent)
                         var coSupervisor ;
                         if(phdStudent.coSupervisor==null){
                             coSupervisor="none"
@@ -267,7 +260,6 @@ $(document).ready(function () {
                 //
                 backendApi.get('/phdStudents/', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
                 .then(function (response) {
-                console.log(response);
                 var phdStudentsCount = $('#phdStudentsCount');
                     var nbr = ""+response.data.length;
                     phdStudentsCount.html(nbr-7);
