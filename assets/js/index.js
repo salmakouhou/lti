@@ -256,7 +256,7 @@ $(document).ready(function () {
                 console.log(response);
                 var teamsCount = $('#teamsCount');
                     var nbr = ""+response.data.length;
-                    teamsCount.html(nbr-7);
+                    teamsCount.html(nbr-6);
 
                  
                
@@ -270,7 +270,7 @@ $(document).ready(function () {
                 console.log(response);
                 var phdStudentsCount = $('#phdStudentsCount');
                     var nbr = ""+response.data.length;
-                    phdStudentsCount.html(nbr-6);
+                    phdStudentsCount.html(nbr-7);
 
                  
                
