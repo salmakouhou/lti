@@ -54,7 +54,7 @@ $(document).ready(function () {
                            
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
-                                    //`<div><img class="sp_img" src="http://localhost:8888/pictures/${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
+                                    `<div><img class="sp_img" src="http://localhost:8888/pictures/${user.profilePicture}" style="height:64px;width:64px" alt=""></div>` +
                                     '<div class="member-info">' +
                                     `<h6>${convertRoles(user.roles)}</h6>` +
                                     `<span></span>` +
