@@ -2,7 +2,6 @@ $(document).ready(function () {
 
 
 
-
     function bindRole(role) {
         if (role === "RESEARCHER") return "Chercheur";
         if (role === "CED_HEAD") return "Chef de CED";
@@ -42,17 +41,18 @@ $(document).ready(function () {
 
             backendApi.get(`/followed-users`, { params: { "laboratory_abbreviation": user.laboratoriesHeaded[0].abbreviation } })
                 .then(function (response) {
-                    console.log(response.data);
                     var chercheurs = $('#chercheursInfo');
                     var op = "";
                     response.data.forEach((user) => {
                         user.roles = convertRoles(user.roles);
-                        //s'il possede une image de profile
-                        if ((user.profilePicture != "")) {
+
+                        if (user.profilePicture instanceof Object && user.profilePicture.data != undefined) {
 
                             op += '<div class="col-lg-6">' +
                                 '<div class="member d-flex align-items-start">' +
-                                `<div><img class="sp_img" src="${user.profilePicture}" style="height:100px;width:100px" alt=""></div>` +
+                                `<div><img class="sp_img" src="data:${user.profilePicture.mimetype};base64,${btoa(new Uint8Array(user.profilePicture.data.data)
+                                    .reduce((data, byte) => data + String.fromCharCode(byte), '')
+                                )}" style="height:100px;width:100px" alt=""></div>` +
                                 '<div class="member-info">' +
                                 `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
                                 `<h6>${user.roles}</h6>` +
