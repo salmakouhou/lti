@@ -240,7 +240,7 @@ $(document).ready(function () {
                 .then(function (response) {
                     var phdStudentsCount = $('#phdStudentsCount');
                     var nbr = "" + response.data.length;
-                    phdStudentsCount.html(nbr - 7);
+                    phdStudentsCount.html(nbr - 13);
 
 
 
