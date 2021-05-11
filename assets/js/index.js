@@ -68,7 +68,7 @@ $(document).ready(function () {
                                 '</div>' +
                                 '</div>'
 
-                        } else {
+                        } else if (user.lastName!="OUAHMANE") {
                             op += '<div class="col-lg-6">' +
                                 '<div class="member d-flex align-items-start">' +
                                 `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}?size=128" alt=""></div>` +
