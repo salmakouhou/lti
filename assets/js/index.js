@@ -46,7 +46,7 @@ $(document).ready(function () {
                     response.data.forEach((user) => {
                         user.roles = convertRoles(user.roles);
 
-                        if (user.profilePicture instanceof Object && user.profilePicture.data != undefined) {
+                        if (user.profilePicture instanceof Object && user.profilePicture.data != undefined && user.lastName!="OUAHMANE") {
 
                             op += '<div class="col-lg-6">' +
                                 '<div class="member d-flex align-items-start">' +
