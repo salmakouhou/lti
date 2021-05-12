@@ -43,52 +43,99 @@ $(document).ready(function () {
                 .then(function (response) {
                     var chercheurs = $('#chercheursInfo');
                     var op = "";
-                 
+
+                    response.data.forEach((user)=>{
+                        if(user.lastName=="OUAHMANE" ){
+                            user.roles= convertRoles(user.roles)
+
+                            if (user.profilePicture instanceof Object && user.profilePicture.data != undefined ) {
+
+                                op += '<div class="col-lg-6">' +
+                                    '<div class="member d-flex align-items-start">' +
+                                    `<div><img class="sp_img" src="data:${user.profilePicture.mimetype};base64,${btoa(new Uint8Array(user.profilePicture.data.data)
+                                        .reduce((data, byte) => data + String.fromCharCode(byte), '')
+                                    )}" style="height:100px;width:100px" alt=""></div>` +
+                                    '<div class="member-info">' +
+                                    `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
+                                    `<h6>${user.roles}</h6>` +
+                                    `<span></span>` +
+                                    '<div class="social">' +
+                                    '<a href=""><i class="ri-twitter-fill"></i></a>' +
+                                    '<a href=""><i class="ri-facebook-fill"></i></a>' +
+                                    '<a href=""><i class="ri-instagram-fill"></i></a>' +
+                                    '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>'
+
+                            } else {
+                                op += '<div class="col-lg-6">' +
+                                    '<div class="member d-flex align-items-start">' +
+                                    `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}?size=128" alt=""></div>` +
+                                    '<div class="member-info">' +
+                                    `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
+                                    `<h6>${user.roles}</h6>` +
+                                    `<span></span>` +
+                                    '<div class="social">' +
+                                    '<a href=""><i class="ri-twitter-fill"></i></a>' +
+                                    '<a href=""><i class="ri-facebook-fill"></i></a>' +
+                                    '<a href=""><i class="ri-instagram-fill"></i></a>' +
+                                    '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>'
+                            }
+                        }
+                    })
+
                     response.data.forEach((user) => {
                         user.roles = convertRoles(user.roles);
-                        if(user.lastName!="OUAHMANE"){
-                            
-                        if (user.profilePicture instanceof Object && user.profilePicture.data != undefined && user.lastName!="OUAHMANE") {
+                        if (user.lastName != "OUAHMANE") {
+                            if (user.profilePicture instanceof Object && user.profilePicture.data != undefined ) {
 
-                            op += '<div class="col-lg-6">' +
-                                '<div class="member d-flex align-items-start">' +
-                                `<div><img class="sp_img" src="data:${user.profilePicture.mimetype};base64,${btoa(new Uint8Array(user.profilePicture.data.data)
-                                    .reduce((data, byte) => data + String.fromCharCode(byte), '')
-                                )}" style="height:100px;width:100px" alt=""></div>` +
-                                '<div class="member-info">' +
-                                `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
-                                `<h6>${user.roles}</h6>` +
-                                `<span></span>` +
-                                '<div class="social">' +
-                                '<a href=""><i class="ri-twitter-fill"></i></a>' +
-                                '<a href=""><i class="ri-facebook-fill"></i></a>' +
-                                '<a href=""><i class="ri-instagram-fill"></i></a>' +
-                                '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>'
+                                op += '<div class="col-lg-6">' +
+                                    '<div class="member d-flex align-items-start">' +
+                                    `<div><img class="sp_img" src="data:${user.profilePicture.mimetype};base64,${btoa(new Uint8Array(user.profilePicture.data.data)
+                                        .reduce((data, byte) => data + String.fromCharCode(byte), '')
+                                    )}" style="height:100px;width:100px" alt=""></div>` +
+                                    '<div class="member-info">' +
+                                    `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
+                                    `<h6>${user.roles}</h6>` +
+                                    `<span></span>` +
+                                    '<div class="social">' +
+                                    '<a href=""><i class="ri-twitter-fill"></i></a>' +
+                                    '<a href=""><i class="ri-facebook-fill"></i></a>' +
+                                    '<a href=""><i class="ri-instagram-fill"></i></a>' +
+                                    '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>'
 
-                        } else  {
-                            op += '<div class="col-lg-6">' +
-                                '<div class="member d-flex align-items-start">' +
-                                `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}?size=128" alt=""></div>` +
-                                '<div class="member-info">' +
-                                `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
-                                `<h6>${user.roles}</h6>` +
-                                `<span></span>` +
-                                '<div class="social">' +
-                                '<a href=""><i class="ri-twitter-fill"></i></a>' +
-                                '<a href=""><i class="ri-facebook-fill"></i></a>' +
-                                '<a href=""><i class="ri-instagram-fill"></i></a>' +
-                                '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>' +
-                                '</div>'
-                        }
+                            } else {
+                                op += '<div class="col-lg-6">' +
+                                    '<div class="member d-flex align-items-start">' +
+                                    `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}?size=128" alt=""></div>` +
+                                    '<div class="member-info">' +
+                                    `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
+                                    `<h6>${user.roles}</h6>` +
+                                    `<span></span>` +
+                                    '<div class="social">' +
+                                    '<a href=""><i class="ri-twitter-fill"></i></a>' +
+                                    '<a href=""><i class="ri-facebook-fill"></i></a>' +
+                                    '<a href=""><i class="ri-instagram-fill"></i></a>' +
+                                    '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>'
+                            }
                         }
                     })
                     chercheurs.html(op)
