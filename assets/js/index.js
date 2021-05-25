@@ -94,7 +94,7 @@ $(document).ready(function () {
 
                     response.data.forEach((user) => {
                         user.roles = convertRoles(user.roles);
-                        if (user.lastName != "OUAHMANE" && user.lastName != "BOUSMAH") {
+                        if (user.lastName != "OUAHMANE" && user.lastName != "BOUSMAH" && user.lastName != "KARTIT") {
                             if (user.profilePicture instanceof Object && user.profilePicture.data != undefined ) {
                                 if (user.roles.includes("CED_HEAD")) return ["chef de CED"];
                                 op += '<div class="col-lg-6">' +
@@ -138,7 +138,7 @@ $(document).ready(function () {
                             }
                             
                         }
-                        else if (user.lastName != "OUAHMANE" && user.lastName == "BOUSMAH" ){
+                        else if (user.lastName != "OUAHMANE" && user.lastName == "BOUSMAH" || user.lastName == "KARTIT"){
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}?size=128" alt=""></div>` +
