@@ -96,7 +96,7 @@ $(document).ready(function () {
                         user.roles = convertRoles(user.roles);
                         if (user.lastName != "OUAHMANE") {
                             if (user.profilePicture instanceof Object && user.profilePicture.data != undefined ) {
-
+                                if (user.roles.includes("CED_HEAD")) return ["chef de CED"];
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="data:${user.profilePicture.mimetype};base64,${btoa(new Uint8Array(user.profilePicture.data.data)
