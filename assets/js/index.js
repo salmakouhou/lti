@@ -15,7 +15,7 @@ $(document).ready(function () {
     /////////////////////////////////////////////////
     //instance d'authentification 
     const backendApiNoAuth = axios.create({
-        baseURL: "https://rs-app-backendd.herokuapp.com//auth",
+        baseURL: "https://rs-app-backendd.herokuapp.com/auth",
         timeout: 80000,
         headers: { "Content-Type": "application/json" },
     });
