@@ -94,7 +94,7 @@ $(document).ready(function () {
 
                     response.data.forEach((user) => {
                         user.roles = convertRoles(user.roles);
-                        if (user.lastName != "OUAHMANE") {
+                        if (user.lastName != "OUAHMANE" && user.lastName != "BOUSMAH") {
                             if (user.profilePicture instanceof Object && user.profilePicture.data != undefined ) {
                                 if (user.roles.includes("CED_HEAD")) return ["chef de CED"];
                                 op += '<div class="col-lg-6">' +
@@ -136,7 +136,27 @@ $(document).ready(function () {
                                     '</div>' +
                                     '</div>'
                             }
+                            
                         }
+                        else if (user.lastName != "OUAHMANE" && user.lastName == "BOUSMAH" ){
+                                op += '<div class="col-lg-6">' +
+                                    '<div class="member d-flex align-items-start">' +
+                                    `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}?size=128" alt=""></div>` +
+                                    '<div class="member-info">' +
+                                    `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
+                                    `<h6>Chef d'équipe</h6>` +
+                                    `<span></span>` +
+                                    '<div class="social">' +
+                                    '<a href=""><i class="ri-twitter-fill"></i></a>' +
+                                    '<a href=""><i class="ri-facebook-fill"></i></a>' +
+                                    '<a href=""><i class="ri-instagram-fill"></i></a>' +
+                                    '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>'
+                            }
                     })
                     chercheurs.html(op)
 
