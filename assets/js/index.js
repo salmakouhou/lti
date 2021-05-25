@@ -139,6 +139,30 @@ $(document).ready(function () {
                             
                         }
                         else if (user.lastName != "OUAHMANE" && user.lastName == "BOUSMAH" || user.lastName == "KARTIT"){
+                            if (user.profilePicture instanceof Object && user.profilePicture.data != undefined ) {
+
+                                op += '<div class="col-lg-6">' +
+                                    '<div class="member d-flex align-items-start">' +
+                                    `<div><img class="sp_img" src="data:${user.profilePicture.mimetype};base64,${btoa(new Uint8Array(user.profilePicture.data.data)
+                                        .reduce((data, byte) => data + String.fromCharCode(byte), '')
+                                    )}" style="height:100px;width:100px" alt=""></div>` +
+                                    '<div class="member-info">' +
+                                    `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
+                                    `<h6>Chef d'équipe</h6>` +
+                                    `<span></span>` +
+                                    '<div class="social">' +
+                                    '<a href=""><i class="ri-twitter-fill"></i></a>' +
+                                    '<a href=""><i class="ri-facebook-fill"></i></a>' +
+                                    '<a href=""><i class="ri-instagram-fill"></i></a>' +
+                                    '<a href=""> <i class="ri-linkedin-box-fill"></i></a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</div>'
+
+                            }
+                            else{
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}?size=128" alt=""></div>` +
@@ -156,6 +180,7 @@ $(document).ready(function () {
                                     '</div>' +
                                     '</div>' +
                                     '</div>'
+                            }
                             }
                     })
                     chercheurs.html(op)
