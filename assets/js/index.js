@@ -57,7 +57,7 @@ $(document).ready(function () {
                                     )}" style="height:100px;width:100px" alt=""></div>` +
                                     '<div class="member-info">' +
                                     `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
-                                    `<h6>${user.roles}</h6>` +
+                                    `<h6>Directeur de laboratoire, Chef d'équipe</h6>` +
                                     `<span></span>` +
                                     '<div class="social">' +
                                     '<a href=""><i class="ri-twitter-fill"></i></a>' +
@@ -76,7 +76,7 @@ $(document).ready(function () {
                                     `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}?size=128" alt=""></div>` +
                                     '<div class="member-info">' +
                                     `<h4>Prof. ${user.firstName} ${user.lastName}</h4>` +
-                                    `<h6>${user.roles}</h6>` +
+                                    `<h6>Directeur de laboratoire, Chef d'équipe</h6>` +
                                     `<span></span>` +
                                     '<div class="social">' +
                                     '<a href=""><i class="ri-twitter-fill"></i></a>' +
