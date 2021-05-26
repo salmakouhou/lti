@@ -253,7 +253,7 @@ $(document).ready(function () {
                             `<div class="icon-box">`+
                             `<div class="icon"><i class="icofont-heart-beat"></i></div>`+
                             `<h4><a href="">${projets.title}</a></h4>`+
-                            `<p>${projets.title}</p>`+
+                            `<p>${projets.description}</p>`+
 
                             `</div>`+
                             `</div>`
