@@ -248,15 +248,15 @@ $(document).ready(function () {
                     var projets = $('#projetsInfo');
                     var op = "";
 
-                    response.data.forEach((projet)=>{
-                        op+='<div class="col-lg-4 col-md-6 d-flex align-items-stretch">'+
-                            '<div class="icon-box">'+
-                            '<div class="icon"><i class="icofont-heart-beat"></i></div>'+
-                            '<h4><a href="">ti</a></h4>'+
-                            '<p>de</p>'+
+                    response.data.forEach((projets)=>{
+                        op+=`<div class="col-lg-4 col-md-6 d-flex align-items-stretch">`+
+                            `<div class="icon-box">`+
+                            `<div class="icon"><i class="icofont-heart-beat"></i></div>`+
+                            `<h4><a href="">${projets.title}</a></h4>`+
+                            `<p>${projets.title}</p>`+
 
-                            '</div>'+
-                            '</div>'
+                            `</div>`+
+                            `</div>`
 
                     })
                     projets.html(op)
