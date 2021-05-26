@@ -370,6 +370,19 @@ $(document).ready(function () {
                 }).catch(function (error) {
                     console.log(error)
                 })
+        
+        //
+            backendApi.get('/projets/', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
+                .then(function (response) {
+                    var projetsCount = $('#projetsCount');
+                    var nbr = "" + response.data.length;
+                    projetsCount.html(nbr);
+
+
+
+                }).catch(function (error) {
+                    console.log(error)
+                })
 
 
 
