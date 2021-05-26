@@ -241,7 +241,35 @@ $(document).ready(function () {
                     console.log(error)
                 })
 
+            //projets
 
+            backendApi.get('/projets', { params: { "laboratory_abbreviation": "LTI" } })
+                .then(function (response) {
+                    var projets = $('#projetsInfo');
+                    var op = "";
+
+                    response.data.forEach((projet)=>{
+                        op+='<div class="col-lg-4 col-md-6 d-flex align-items-stretch">'+
+                            '<div class="icon-box">'+
+                            '<div class="icon"><i class="icofont-heart-beat"></i></div>'+
+                            '<h4><a href="">ti</a></h4>'+
+                            '<p>de</p>'+
+
+                            '</div>'+
+                            '</div>'
+
+                    })
+                    projets.html(op)
+
+
+
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                    })
+
+        
+        
             //publications
             backendApi.get('/followed-users', { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
