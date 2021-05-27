@@ -371,7 +371,7 @@ $(document).ready(function () {
                     console.log(error)
                 })
         
-        //
+        //count projets
             backendApi.get('/projets/', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
                 .then(function (response) {
                     var projetsCount = $('#projetsCount');
@@ -386,6 +386,23 @@ $(document).ready(function () {
 
 
 
+            //mot du directeur
+
+            backendApi.get('/mots', { params: { "laboratory_abbreviation": "LTI" } })
+            .then(function (response) {
+                var mots = $('#motsInfo');
+                var op = "";
+
+                response.data.forEach((mots)=>{
+                op+=`<p>${mots.description}</p>`
+                })
+                    mots.html(op)
+
+                }).catch(function (error) {
+                    console.log(error)
+                })
+
+
+
         })
 })
-
