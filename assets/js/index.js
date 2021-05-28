@@ -359,11 +359,11 @@ $(document).ready(function () {
                 })
 
             //
-            backendApi.get('/phdStudents/', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
+            backendApi.get('/phdStudentsLabs', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
                 .then(function (response) {
                     var phdStudentsCount = $('#phdStudentsCount');
                     var nbr = "" + response.data.length;
-                    phdStudentsCount.html(nbr - 13);
+                    phdStudentsCount.html(nbr);
 
 
 
