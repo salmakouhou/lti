@@ -372,7 +372,7 @@ $(document).ready(function () {
                 })
         
         //count projets
-            backendApi.get('/projetsLab/', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
+            backendApi.get('/projetsLab', { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
                     var projetsCount = $('#projetsCount');
                     var nbr = "" + response.data.length;
