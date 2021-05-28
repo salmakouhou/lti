@@ -243,7 +243,7 @@ $(document).ready(function () {
 
             //projets
 
-            backendApi.get('/projets', { params: { "laboratory_abbreviation": "LTI" } })
+            backendApi.get('/projetsLab', { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
                     var projets = $('#projetsInfo');
                     var op = "";
