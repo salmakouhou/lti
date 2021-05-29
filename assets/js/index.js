@@ -359,7 +359,7 @@ $(document).ready(function () {
                 })
 
             //
-            backendApi.get('/phdStudentsLabs', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
+            backendApi.get('/phdStudentsLabs', { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
                     var phdStudentsCount = $('#phdStudentsCount');
                     var nbr = "" + response.data.length;
