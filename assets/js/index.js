@@ -191,7 +191,7 @@ $(document).ready(function () {
 
 
             //doctorants
-            backendApi.get(`/phdStudentsLabs`)
+            backendApi.get(`/phdStudentsLabs`, { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
                     var content = '';
 
