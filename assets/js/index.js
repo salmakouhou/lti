@@ -15,7 +15,7 @@ $(document).ready(function () {
     /////////////////////////////////////////////////
     //instance d'authentification 
     const backendApiNoAuth = axios.create({
-        baseURL: "https://rs-app-backendd.herokuapp.com/auth",
+        baseURL: "http://localhost:8888/auth",
         timeout: 80000,
         headers: { "Content-Type": "application/json" },
     });
@@ -28,7 +28,7 @@ $(document).ready(function () {
 
             //instance de l'api apres l'authentification
             const backendApi = axios.create({
-                baseURL: "https://rs-app-backendd.herokuapp.com/api",
+                baseURL: "http://localhost:8888/api",
                 timeout: 80000,
                 headers: {
                     "Content-Type": "application/json",
@@ -44,11 +44,11 @@ $(document).ready(function () {
                     var chercheurs = $('#chercheursInfo');
                     var op = "";
 
-                    response.data.forEach((user)=>{
-                        if(user.lastName=="OUAHMANE" ){
-                            user.roles= convertRoles(user.roles)
+                    response.data.forEach((user) => {
+                        if (user.lastName == "OUAHMANE") {
+                            user.roles = convertRoles(user.roles)
 
-                            if (user.profilePicture instanceof Object && user.profilePicture.data != undefined ) {
+                            if (user.profilePicture instanceof Object && user.profilePicture.data != undefined) {
 
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
@@ -95,7 +95,7 @@ $(document).ready(function () {
                     response.data.forEach((user) => {
                         user.roles = convertRoles(user.roles);
                         if (user.lastName != "OUAHMANE" && user.lastName != "BOUSMAH" && user.lastName != "KARTIT") {
-                            if (user.profilePicture instanceof Object && user.profilePicture.data != undefined ) {
+                            if (user.profilePicture instanceof Object && user.profilePicture.data != undefined) {
                                 if (user.roles.includes("CED_HEAD")) return ["chef de CED"];
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
@@ -136,10 +136,10 @@ $(document).ready(function () {
                                     '</div>' +
                                     '</div>'
                             }
-                            
+
                         }
-                        else if (user.lastName != "OUAHMANE" && user.lastName == "BOUSMAH" || user.lastName == "KARTIT"){
-                            if (user.profilePicture instanceof Object && user.profilePicture.data != undefined ) {
+                        else if (user.lastName != "OUAHMANE" && user.lastName == "BOUSMAH" || user.lastName == "KARTIT") {
+                            if (user.profilePicture instanceof Object && user.profilePicture.data != undefined) {
 
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
@@ -162,7 +162,7 @@ $(document).ready(function () {
                                     '</div>'
 
                             }
-                            else{
+                            else {
                                 op += '<div class="col-lg-6">' +
                                     '<div class="member d-flex align-items-start">' +
                                     `<div><img class="sp_img" src="https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}?size=128" alt=""></div>` +
@@ -181,7 +181,7 @@ $(document).ready(function () {
                                     '</div>' +
                                     '</div>'
                             }
-                            }
+                        }
                     })
                     chercheurs.html(op)
 
@@ -248,14 +248,14 @@ $(document).ready(function () {
                     var projets = $('#projetsInfo');
                     var op = "";
 
-                    response.data.forEach((projets)=>{
-                        op+=`<div class="col-lg-4 col-md-6 d-flex align-items-stretch">`+
-                            `<div class="icon-box">`+
-                            `<div class="icon"><i class="icofont-heart-beat"></i></div>`+
-                            `<h4><a href="">${projets.title}</a></h4>`+
-                            `<p>${projets.description}</p>`+
+                    response.data.forEach((projets) => {
+                        op += `<div class="col-lg-4 col-md-6 d-flex align-items-stretch">` +
+                            `<div class="icon-box">` +
+                            `<div class="icon"><i class="icofont-heart-beat"></i></div>` +
+                            `<h4><a href="">${projets.title}</a></h4>` +
+                            `<p>${projets.description}</p>` +
 
-                            `</div>`+
+                            `</div>` +
                             `</div>`
 
                     })
@@ -263,32 +263,32 @@ $(document).ready(function () {
 
 
 
-                    })
-                    .catch(function (error) {
-                        console.log(error)
-                    })
-
-            //galerie
-
-            backendApi.get('/galerie', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
-            .then(function (response) {
-                var galeries = $('#galeriesInfo');
-                var op = "";
-
-                response.data.forEach((galeries)=>{
-                    op+='<div class="col-lg-3 col-md-4">'
-                            '<div class="gallery-item">'+
-                                `<div><img class="venobox" data-gall="gallery-item" src="data:${galeries.photo.mimetype};base64,${btoa(new Uint8Array(galeries.photo.data.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}"></div>` 
-                            '</div>'+
-                        '</div>'
-                    })
-                galeries.html(op)
                 })
                 .catch(function (error) {
                     console.log(error)
                 })
-        
-        
+
+            //galerie
+
+            backendApi.get('/galerie', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
+                .then(function (response) {
+                    var galeries = $('#galeriesInfo');
+                    var op = "";
+
+                    response.data.forEach((galeries) => {
+                        op += '<div class="col-lg-3 col-md-4">'
+                        '<div class="gallery-item">' +
+                            `<div><img class="venobox" data-gall="gallery-item" src="data:${galeries.photo.mimetype};base64,${btoa(new Uint8Array(galeries.photo.data.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}"></div>`
+                        '</div>' +
+                            '</div>'
+                    })
+                    galeries.html(op)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+
+
             //publications
             backendApi.get('/followed-users', { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
@@ -389,8 +389,8 @@ $(document).ready(function () {
                 }).catch(function (error) {
                     console.log(error)
                 })
-        
-        //count projets
+
+            //count projets
             backendApi.get('/projetsLab', { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
                     var projetsCount = $('#projetsCount');
@@ -408,20 +408,41 @@ $(document).ready(function () {
             //mot du directeur
 
             backendApi.get('/mots', { params: { "laboratory_abbreviation": "LTI" } })
-            .then(function (response) {
-                var mots = $('#motsInfo');
-                var op = "";
+                .then(function (response) {
+                    var mots = $('#motsInfo');
+                    var op = "";
 
-                response.data.forEach((mots)=>{
-                op+=`<p>${mots.description}</p>`
-                })
+                    response.data.forEach((mots) => {
+                        op += `<p>${mots.description}</p>`
+                    })
                     mots.html(op)
 
                 }).catch(function (error) {
                     console.log(error)
                 })
+            const connectedUser = JSON.parse(localStorage.getItem("user"));
 
-
+            var op=``
+            backendApi.get('/galerie/' +connectedUser.laboratoriesHeaded[0]._id)
+                .then(function (response) {
+                    console.log("=)==========================>================>")
+                    console.log(response.data)
+                    response.data.forEach((e)=>{
+                        e.photo.forEach((gal)=>{
+                            console.log(gal)
+                            op+=`<div class="col-lg-3 col-md-4">
+                            <div class="gallery-item">
+                                <a href="assets/img/gallery/gallery-1.jpg" class="venobox" data-gall="gallery-item">
+                                    <img src="data:${gal.mimetype};base64,${btoa(new Uint8Array(gal.data.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                        </div>`
+                        })
+                    })
+                    $("#gal").html(op);
+                }).catch(function (error) {
+                    console.log(error)
+                })
 
         })
 })
