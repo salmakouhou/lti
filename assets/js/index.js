@@ -268,6 +268,25 @@ $(document).ready(function () {
                         console.log(error)
                     })
 
+            //galerie
+
+            backendApi.get('/galerie', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
+            .then(function (response) {
+                var galeries = $('#galeriesInfo');
+                var op = "";
+
+                response.data.forEach((galeries)=>{
+                    op+='<div class="col-lg-3 col-md-4">'
+                            '<div class="gallery-item">'+
+                                `<div><img class="venobox" data-gall="gallery-item" src="data:${galeries.photo.mimetype};base64,${btoa(new Uint8Array(galeries.photo.data.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}"></div>` 
+                            '</div>'+
+                        '</div>'
+                    })
+                galeries.html(op)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
         
         
             //publications
