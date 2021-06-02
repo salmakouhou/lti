@@ -407,7 +407,7 @@ $(document).ready(function () {
 
             //mot du directeur
 
-            backendApi.get('/mots', { params: { "laboratory_abbreviation": "LTI" } })
+            backendApi.get('/motsLab', { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
                     var mots = $('#motsInfo');
                     var op = "";
