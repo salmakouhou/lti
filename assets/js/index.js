@@ -369,7 +369,7 @@ $(document).ready(function () {
                     console.log(response);
                     var teamsCount = $('#teamsCount');
                     var nbr = "" + response.data.length;
-                    teamsCount.html(nbr - 6);
+                    teamsCount.html(nbr);
 
 
 
