@@ -364,7 +364,7 @@ $(document).ready(function () {
             ///////////////////////////////////////////
 
             // count teams
-            backendApi.get('/teams/', { params: { "laboratory_id": "5f40f53095de870017abef56" } })
+            backendApi.get('/teamsLab/', { params: { "laboratory_abbreviation": "LTI" } })
                 .then(function (response) {
                     console.log(response);
                     var teamsCount = $('#teamsCount');
